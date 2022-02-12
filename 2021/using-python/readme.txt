@@ -13,3 +13,9 @@ Trying to make python checker and printer fail, code very muddy, and just trunsc
 
 now added 60 sec limit per matrix, because at last of 4x4, very long calc, more than 10 hours not enough, for some matrices
 
+2022-2-12
+4x4 in process
+run4.py executed using amazon EC2 with filtering "bad" matrix, which calculation can't be completed per two minutes. 14000+ matrices collected as bad. rf4.zip include result of EC2 calculations with filtering "bad"matrices.
+
+Next recalculation (from last correct point "globalCounter.txt -> 1564500") without filtering "bad" matrices will be executed.
+
