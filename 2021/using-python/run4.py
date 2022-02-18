@@ -84,13 +84,13 @@ class MGAS:
                         name="Foo",
                         args=(m[1], solution, False))
                     lp.start()
-                    #timeout must be increased x2, 120 is 61(60 is 31) finally, strange
-                    lp.join(timeout=120)
+                    #timeout as join parameter must be increased x2, 120 is 61(60 is 31) finally, strange
+                    lp.join()
                     lp.terminate()
 
-                    if (len(solution) >= 0 and solution[0]==None):
-                        print(m)
-                        print("solution ",solution)
+                    if (len(solution) == 0 and solution[0]==None):
+                        print("m \n",m)
+                        print("solution \n", solution)
                         #write matrix to special list/file in folder "bad"
                         self.mp.printToFileLongCalculatedMatrices(m)
                     else:
@@ -145,7 +145,9 @@ class MGAS:
                 self.mp.refreshGlobalCounterValue(m[0])
 
             except:
-                print(sys.exc_info())
+                theError = sys.exc_info()
+                self.mp.printToFileAnyError(theError, self.globalCounter)
+                print(theError)
                 print("some fail with matrices " +
                       str(self.globalCounter) + " range")
 
@@ -157,5 +159,6 @@ class MGAS:
 
 
 mbox = MGAS(mydir)
+# uncomment next line and comment last line to just print matrix
 # mbox.mg.printMatrix(9)
 mbox.runAll()
