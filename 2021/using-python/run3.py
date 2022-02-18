@@ -88,7 +88,7 @@ class MGAS:
                     lp.join()
                     lp.terminate()
 
-                    if (len(solution) == 0 and solution[0]==None):
+                    if (len(solution) == 1 and solution[0]==None):
                         print("m \n",m)
                         print("solution \n", solution)
                         #write matrix to special list/file in folder "bad"
