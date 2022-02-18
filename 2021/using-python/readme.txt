@@ -19,3 +19,9 @@ run4.py executed using amazon EC2 with filtering "bad" matrix, which calculation
 
 Next recalculation (from last correct point "globalCounter.txt -> 1564500") without filtering "bad" matrices will be executed.
 
+
+--comment for later
+not now 2022-2-18
+5x5 in process using aws without filtering by calculation time, because 4x4 was completed correct.
+Matrices number is 3162510.
+Used script run.py on aws
