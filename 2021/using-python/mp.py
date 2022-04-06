@@ -1,6 +1,6 @@
 import os
 import math
-
+import datetime
 
 class MP:
     """matrix printer"""
@@ -228,5 +228,24 @@ class MP:
         for one in m:
             sline = str(one)+"\n\n"
             slines.append(sline)
+        resultFile.writelines(slines)
+        resultFile.close()
+
+    def printToFileAnyError(self, error, globalCounter):
+        """
+        print matrices with long calculation,
+        not completed in time, to file for later continue
+        the process if possible
+        """
+        print("*"*20)
+        print("*some fail happened*")
+        print("*"*20)
+        fileName = str("error-"+str(datetime.datetime.now()))+".txt"
+        rfDir = self.resultBadDir + os.sep + fileName
+        resultFile = open(rfDir, mode="at", encoding="utf-8")
+        slines = []
+        slines.append(str(error)+"\n")
+        slines.append("globalCounter "+str(globalCounter)+"\n")
+        slines.append("*"*50+"\n\n")
         resultFile.writelines(slines)
         resultFile.close()

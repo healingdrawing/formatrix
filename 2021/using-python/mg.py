@@ -1,6 +1,6 @@
 from __future__ import division
 import itertools as ite
-from sympy import Matrix
+from sympy import Matrix, ImmutableMatrix
 from sg import SG
 
 
@@ -63,8 +63,11 @@ class MG:
             sdata.append(srow)
 
         m = Matrix(mdata)
+        im = ImmutableMatrix(m)
         msym = Matrix(sdata)
-        return [m, msym]
+        imsym = ImmutableMatrix(msym)
+        # return [m, msym]
+        return [im, imsym]
 
     def generateMatrixColsRowsNumericIndicesList(self, globalCounter: int):
         rind = int(globalCounter / self.colsNumber)
